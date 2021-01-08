@@ -53,4 +53,4 @@ Distributed under the [MIT License][license-url]. See `LICENSE` for more informa
 [issues-shield]: https://img.shields.io/github/issues/mikyan0207/RType.svg?style=flat-square
 [issues-url]: https://github.com/mikyan0207/RType/issues
 [license-shield]: https://img.shields.io/github/license/mikyan0207/RType.svg?style=flat-square
-[license-url]: https://github.com/mikyan0207/TwitCasting.Net.Downloader/blob/master/LICENSE
+[license-url]: https://github.com/mikyan0207/RType/blob/master/LICENSE
