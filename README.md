@@ -31,6 +31,11 @@ R-Type is a horizontal-scrolling shooter arcade game.
 
 Coming soon.
 
+<!-- USAGE -->
+## Usage
+
+Coming soon.
+
 <!-- LICENSE -->
 ## License
 
