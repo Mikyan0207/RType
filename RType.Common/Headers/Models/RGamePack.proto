@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package RType;
+
+option optimize_for=SPEED;
+
+message RGamePack
+{
+    enum PackType
+    {
+        PING        = 0;
+
+        // Player
+        ACTION       = 1;
+        COLLISION    = 2;
+
+        // Server
+        LOAD        = 40;
+        DESTROY     = 41;
+        POSITION    = 42;
+        EFFECT      = 43;
+        END_GAME    = 44;
+    }
+
+    PackType code = 1;
+    uint32 playerId = 2;
+
+    oneof uvar
+    {
+        // Client
+        ActionPacket actionContent = 3;
+        CollidePacket collidePacket = 4;
+
+        // Server
+        LoadPacket loadContent = 5;
+        DestroyPacket destroyContent = 6;
+        PositionPacket positionContent = 7;
+        EffectPacket effectContent = 8;
+    }
+}
+
+// Client Packets
+
+message ActionPacket
+{
+    enum ActionType
+    {
+        UP          = 0;
+        DOWN        = 1;
+        LEFT        = 2;
+        RIGHT       = 3;
+        SHOOT       = 4;
+    }
+
+    uint32 Id = 1;
+    ActionType type = 2;
+
+    oneof sLvl
+    {
+        uint64 shootLevel = 3;
+    }
+}
+
+message CollidePacket
+{
+    repeated uint64 Ids = 1 [packed=true];
+}
+
+// Server Packets
+
+message Vector2
+{
+    double X = 1;
+    double Y = 2;
+}
+
+message LoadPacket
+{
+    enum EntityType
+    {
+        PLAYER = 0;
+        ENEMY = 1;
+        ALLY = 2;
+        POWERUP = 3;
+        BASIC_SHOT = 4;
+        ENEMY_BULLET = 5;
+    }
+
+    uint32 Id = 1;
+    EntityType type = 2;
+    string fileName = 3;
+    Vector2 position = 4;
+    Vector2 scale = 5;
+    Vector2 size = 6;
+    Vector2 animFrameInfo = 7;
+}
+
+message DestroyPacket
+{
+    repeated uint32 Ids = 1 [packed=true];
+}
+
+message PositionPacket
+{
+    repeated uint32 Id = 1 [packed=true];
+
+    repeated Vector2 position = 2;
+    repeated int32 velocity = 3;
+    bool has_velocity = 4;
+}
+
+message EffectPacket
+{
+    enum EffectType
+    {
+        SPEED = 0;
+        ATTACKSPEED = 1;
+        SHIELD = 2;
+        LIFE = 3;
+    }
+
+    uint32 playerId = 1;
+    EffectType type = 2;
+}

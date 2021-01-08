@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package RType;
+
+option optimize_for=SPEED;
+
+message RTypePack
+{
+    enum PackType
+    {
+        RESPONSE            = 0;
+
+        // TCPClient
+        CREATE_ROOM         = 1;
+        JOIN_ROOM           = 2;
+        LEAVE_ROOM          = 3;
+        START_GAME          = 4;
+
+        // TCPServer
+        ROOM_CREATED        = 5;
+        ROOM_JOINED         = 6;
+        ROOM_PLAYER_JOINED  = 7;
+        ROOM_IS_FULL        = 8;
+        ROOM_LEFT           = 9;
+        ROOM_PLAYER_LEFT    = 10;
+
+        TRYING              = 100;
+        OK                  = 200;
+        NOTFOUND            = 404;
+    }
+
+    PackType code = 1;
+    string clientip = 2;
+    uint32 clientId = 3;
+
+    oneof Packet {
+        ResponsePacket ResponseContent = 4;
+        LobbyPacket LobbyContent = 5;
+    }
+}
+
+message ResponsePacket
+{
+    enum ActionType
+    {
+        OK = 0;
+        BAD = 1;
+    }
+
+    ActionType Code = 1;
+    string Content = 2;
+}
+
+message LobbyPacket
+{
+    uint32 PlayerID = 1;
+    string RoomID = 2;
+    uint32 MaxPlayer = 3;
+    string udp_ip = 4;
+    uint32 port = 5;
+}

@@ -1,0 +1,8 @@
+ConeShootingMonster 1600 400 2.2 0
+ConeShootingMonster 1600 800 2.2 0
+LinearShootingMonster 1600 200 11.2 0
+LinearShootingMonster 1600 500 11.2 0
+DiagonalShootingMonster 1600 600 25.0 0
+DiagonalShootingMonster 1600 700 25.0 0
+DiagonalShootingMonster 1600 800 25.0 0
+DiagonalShootingMonster 1600 900 25.0 0
