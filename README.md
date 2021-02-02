@@ -1,13 +1,10 @@
 # R-Type
 
-![GitHub CI](https://github.com/EpitechIT2020/B-CPP-501-MPL-5-1-rtype-romain.bry/workflows/CMake/badge.svg)
-
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
-* [Getting Started](#getting-started)
 * [Usage](#usage)
 * [License](#license)
 
@@ -24,17 +21,29 @@ R-Type is a horizontal-scrolling shooter arcade game.
 * C++17
 * SFML
 * protobuf
+* conan
 
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-Coming soon.
 
 <!-- USAGE -->
 ## Usage
 
-Coming soon.
+1. Download [Conan Package Manager](https://conan.io/)
+
+2. Add Bincrafter remote for Conan
+
+```$ conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan```
+
+3. Build project
+
+```mkdir build && cd build && conan install .. --build=missing && cmake .. -G "Unix Makefile" && cmake --build .```
+
+4. Start server
+
+```./rtype-server```
+
+5. Start client
+
+```./rtype-client```
 
 <!-- LICENSE -->
 ## License
@@ -44,13 +53,4 @@ Distributed under the [MIT License][license-url]. See `LICENSE` for more informa
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/mikyan0207/RType.svg?style=flat-square
-[contributors-url]: https://github.com/mikyan0207/RType/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/mikyan0207/RType.svg?style=flat-square
-[forks-url]: https://github.com/mikyan0207/RType/network/members
-[stars-shield]: https://img.shields.io/github/stars/mikyan0207/RType.svg?style=flat-square
-[stars-url]: https://github.com/mikyan0207/RType/stargazers
-[issues-shield]: https://img.shields.io/github/issues/mikyan0207/RType.svg?style=flat-square
-[issues-url]: https://github.com/mikyan0207/RType/issues
-[license-shield]: https://img.shields.io/github/license/mikyan0207/RType.svg?style=flat-square
 [license-url]: https://github.com/mikyan0207/RType/blob/master/LICENSE
